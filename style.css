@@ -1,0 +1,93 @@
+/* General */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #2e7d32;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+#adminStatus {
+  color: #ffd700;
+  font-weight: bold;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+/* Nav */
+nav button {
+  margin: 0.3rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #66bb6a;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+nav button:hover { background: #388e3c; }
+
+/* Main */
+main { padding: 1rem; }
+.page { display: none; }
+.page.active { display: block; }
+
+/* Forms */
+form input, form textarea {
+  display: block;
+  width: 80%;
+  margin-bottom: 0.8rem;
+  padding: 0.5rem;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* error style for wrong password or invalid input */
+.input-error {
+  border-color: #d32f2f !important;
+  background: #ffecec !important;
+  box-shadow: 0 0 0 3px rgba(211,47,47,8);
+}
+
+/* Buttons */
+form button, #adminLogout {
+  background: #2e7d32;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+form button:hover, #adminLogout:hover { background: #1b2e20; }
+
+/* Lists */
+ul { list-style-type: none; padding: 0; }
+li {
+  background: white;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+/* generic buttons inside lists */
+button.small {
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  border: none;
+  background: #196d2;
+  color: white;
+  cursor: pointer;
+}
+button.small.danger { background: #d32f2f; }
+button.small.approve { background: #388e3c; }
+
+.hidden { display: none; }

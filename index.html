@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Indirimbo za Kiliziya Gatolika</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header igaragara rimwe -->
+  <header>
+    <h1>Indirimbo za Kiliziya Gatolika</h1>
+    <p id="adminStatus" class="hidden">Admin Mode ON ✨</p>
+    <nav>
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('songs')">Songs</button>
+      <button onclick="showPage('add')">Add Song</button>
+      <button onclick="showPage('admin')">Admin</button>
+      <button onclick="showPage('about')">About</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home -->
+    <section id="home" class="page active">
+      <h2>Murakaza neza</h2>
+      <p>Kuririmba ni ugusenga kabiri ✝</p>
+    </section>
+
+    <!-- Songs page -->
+    <section id="songs" class="page">
+      <h2>Indirimbo zemejwe</h2>
+      <ul id="approvedSongs"></ul>
+    </section>
+
+    <!-- Add Song page -->
+    <section id="add" class="page">
+      <h2>Ongeraho Indirimbo</h2>
+      <form id="songForm">
+        <input type="text" id="title" placeholder="Izina ry’indirimbo" required />
+        <textarea id="lyrics" placeholder="Andika indirimbo hano..." required></textarea>
+        <button type="submit">Ohereza</button>
+      </form>
+    </section>
+
+    <!-- Admin page -->
+    <section id="admin" class="page">
+      <h2>Admin Login</h2>
+      <form id="adminLoginForm">
+        <input type="password" id="adminPass" placeholder="Shyiramo admin password" required />
+        <button type="submit">Injira</button>
+      </form>
+
+      <div id="pendingPanel" class="hidden"><br>
+        <button id="adminLogout">Logout</button>
+        <h3>Pending Songs</h3>
+        <ul id="pendingSongs"></ul>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="page">
+      <h2>Ibyerekeye App</h2>
+      <p>
+        Iyi application igufasha kubona indirimbo za Kiliziya Gatolika aho uri hose.  <br>
+        Indirimbo ni isengesho rihimbaza,risaba kandi risingiza Imana, iyo turirimba dusenga kabiri. <br> 
+        Ubutunzi bw’indirimbo zacu, butuma twisanga mu isengesho no mu rukundo rw’Imana. <br>
+
+      </p>
+	  
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
