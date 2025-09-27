@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel - Catholic Songs</title>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<body>
+  <h1>Admin Panel - Indirimbo zatanzwe</h1>
+  <ul id="songsList"></ul>
+
+  <script>
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "API_KEY",
+      authDomain: "PROJECT_ID.firebaseapp.com",
+      projectId: "PROJECT_ID",
+      storageBucket: "PROJECT_ID.appspot.com",
+      messagingSenderId: "SENDER_ID",
+      appId: "APP_ID"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    const songsList = document.getElementById("songsList");
+
+    // Fetch songs from Firestore
+    db.collection("songs").where("approved", "==", false).onSnapshot((snapshot) => {
+      songsList.innerHTML = ""; // clear list
+      snapshot.forEach((doc) => {
+        const song = doc.data();
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <strong>${song.name}</strong>: ${song.lyrics}
+          <button onclick="approveSong('${doc.id}')">Approve</button>
+          <button onclick="deleteSong('${doc.id}')">Delete</button>
+        `;
+        songsList.appendChild(li);
+      });
+    });
+
+    function approveSong(id) {
+      db.collection("songs").doc(id).update({ approved: true })
+        .then(() => alert("Indirimbo yemejwe!"));
+    }
+
+    function deleteSong(id) {
+      db.collection("songs").doc(id).delete()
+        .then(() => alert("Indirimbo yasibwe!"));
+    }
+  </script>
+</body>
+</html>
